@@ -1,6 +1,8 @@
+'use client';
 import TestimonialColumns from '@/components/Testimonials';
 import { testimonials } from '@/data/testimonials';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const firstCol = testimonials.slice(0, 3);
 const secondCol = testimonials.slice(3, 6);
@@ -23,15 +25,17 @@ export const Testimonials = () => {
                     </p>
                 </div>
 
-                <div className="flex justify-center gap-6">
-                    <TestimonialColumns testimonials={firstCol} />
+                <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[738px] overflow-hidden">
+                    <TestimonialColumns testimonials={firstCol} duration={16}/>
                     <TestimonialColumns
                         testimonials={secondCol}
-                        className="hidden md:flex"
+                        className="hidden md:block"
+                        duration={20}
                     />
                     <TestimonialColumns
                         testimonials={thirdCol}
-                        className="hidden lg:flex"
+                        className="hidden lg:block"
+                        duration={18}
                     />
                 </div>
             </div>
